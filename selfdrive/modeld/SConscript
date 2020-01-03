@@ -3,7 +3,7 @@ Import('env', 'arch', 'messaging', 'common', 'gpucommon', 'visionipc')
 libs = [messaging, common, 'OpenCL', 'SNPE', 'capnp', 'zmq', 'kj', 'yuv', gpucommon, visionipc]
 
 if arch == "aarch64":
-  libs += ['gsl', 'CB', 'gnustl_shared']
+  libs += ['gsl', 'CB', 'lzma', 'symphony-cpu', 'symphonypower']
 else:
   libs += ['symphony-cpu', 'pthread']
 

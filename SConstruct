@@ -14,7 +14,7 @@ arch = subprocess.check_output(["uname", "-m"], encoding='utf8').rstrip()
 
 if arch == "aarch64":
   lenv = {
-    "LD_LIBRARY_PATH": '/data/data/com.termux/files/usr/lib',
+    "LD_LIBRARY_PATH": '/system/lib64:/data/data/com.termux/files/usr/lib',
     "PATH": os.environ['PATH'],
     "ANDROID_DATA": os.environ['ANDROID_DATA'],
     "ANDROID_ROOT": os.environ['ANDROID_ROOT'],
@@ -26,6 +26,7 @@ if arch == "aarch64":
   libpath = [
     "#phonelibs/snpe/aarch64-android-clang3.8",
     "/usr/lib",
+    "/system/lib64",
     "/data/data/com.termux/files/usr/lib",
     "/system/vendor/lib64",
     "/system/comma/usr/lib",

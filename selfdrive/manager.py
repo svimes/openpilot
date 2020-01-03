@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.7
+#!/data/data/com.termux/files/usr/bin/env python
 import os
 import time
 import sys

@@ -21,7 +21,7 @@ def get_ext_filename_without_platform_suffix(filename):
     return filename
   else:
     return name[:idx] + ext
-
+#
 
 class BuildExtWithoutPlatformSuffix(build_ext):
   def get_ext_filename(self, ext_name):
@@ -33,10 +33,8 @@ sourcefiles = ['messaging_pyx.pyx']
 extra_compile_args = ["-std=c++11"]
 libraries = ['zmq']
 ARCH = subprocess.check_output(["uname", "-m"], encoding='utf8').rstrip()  # pylint: disable=unexpected-keyword-arg
-
 if ARCH == "aarch64":
   extra_compile_args += ["-Wno-deprecated-register"]
-  libraries += ['gnustl_shared']
 
 setup(name='CAN parser',
       cmdclass={'build_ext': BuildExtWithoutPlatformSuffix},
