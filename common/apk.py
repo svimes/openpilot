@@ -28,7 +28,7 @@ def install_apk(path):
 
 def start_frame():
   set_package_permissions()
-  system('LD_LIBRARY_PATH="/data/data/com.termux/files/usr/lib"; am start -n ai.comma.plus.frame/.MainActivity')
+  system('am start -n ai.comma.plus.frame/.MainActivity')
 
 def set_package_permissions():
   pm_grant("ai.comma.plus.offroad", "android.permission.ACCESS_FINE_LOCATION")
@@ -46,7 +46,7 @@ def pm_grant(package, permission):
 def system(cmd):
   try:
     cloudlog.info("running %s" % cmd)
-    subprocess.check_output(cmd, stderr=subprocess.STDOUT, shell=True)
+    subprocess.check_output(cmd, stderr=subprocess.STDOUT, shell=True, env={"LD_LIBRARY_PATH": "/data/data/com.termux/files/usr/lib"})
   except subprocess.CalledProcessError as e:
     cloudlog.event("running failed",
       cmd=e.cmd,
