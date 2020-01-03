@@ -68,5 +68,5 @@ def snapshot():
 if __name__ == "__main__":
   pic, fpic = snapshot()
   print(pic.shape)
-  jpeg_write("/tmp/back.jpg", pic)
-  jpeg_write("/tmp/front.jpg", fpic)
+  jpeg_write("/data/local/tmp/back.jpg", pic)
+  jpeg_write("/data/local/tmp/front.jpg", fpic)

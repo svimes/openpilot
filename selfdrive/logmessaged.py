@@ -12,7 +12,7 @@ def main(gctx=None):
 
   ctx = zmq.Context().instance()
   sock = ctx.socket(zmq.PULL)
-  sock.bind("ipc:///tmp/logmessage")
+  sock.bind("ipc:///data/local/tmp/logmessage")
 
   # and we publish them
   pub_sock = messaging.pub_sock('logMessage')

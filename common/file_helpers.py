@@ -30,7 +30,7 @@ def get_tmpdir_on_same_filesystem(path):
     return "/scratch/tmp"
   elif len(parts) > 2 and parts[2] == "runner":
     return "/{}/runner/tmp".format(parts[1])
-  return "/tmp"
+  return "/data/local/tmp"
 
 class AutoMoveTempdir():
   def __init__(self, target_path, temp_dir=None):

@@ -2153,7 +2153,7 @@ void cameras_run(DualCameraState *s) {
 
         /*if (c->is_samsung) {
           printf("write %d\n", c->frame_size);
-          FILE *f = fopen("/tmp/test", "wb");
+          FILE *f = fopen("/data/local/tmp/test", "wb");
           fwrite((void*)c->camera_bufs[i].addr, 1, c->frame_size, f);
           fclose(f);
         }*/

@@ -15,7 +15,7 @@ class LogMessageHandler(logging.Handler):
     self.zctx = zmq.Context()
     self.sock = self.zctx.socket(zmq.PUSH)
     self.sock.setsockopt(zmq.LINGER, 10)
-    self.sock.connect("ipc:///tmp/logmessage")
+    self.sock.connect("ipc:///data/local/tmp/logmessage")
     self.pid = os.getpid()
 
   def emit(self, record):

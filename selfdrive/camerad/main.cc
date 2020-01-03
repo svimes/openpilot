@@ -311,7 +311,7 @@ void* frontview_thread(void *arg) {
       s->front_frame_sock->send((char*)bytes.begin(), bytes.size());
     }
 
-    /*FILE *f = fopen("/tmp/test2", "wb");
+    /*FILE *f = fopen("/data/local/tmp/test2", "wb");
     printf("%d %d\n", s->rgb_front_height, s->rgb_front_stride);
     fwrite(bgr_front_ptr, 1, s->rgb_front_stride * s->rgb_front_height, f);
     fclose(f);*/

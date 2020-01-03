@@ -31,8 +31,8 @@ static const CLUProgramIndex clu_index[] = {};
 
 void clu_init(void) {
 #ifndef CLU_NO_SRC
-  mkdir("/tmp/clcache", 0777);
-  unlink("/tmp/clcache/index.cli");
+  mkdir("/data/local/tmp/clcache", 0777);
+  unlink("/data/local/tmp/clcache/index.cli");
 #endif
 }
 
@@ -156,7 +156,7 @@ cl_program cl_cached_program_from_hash(cl_context ctx, cl_device_id device_id, u
   int err;
 
   char cache_path[1024];
-  snprintf(cache_path, sizeof(cache_path), "/tmp/clcache/%016" PRIx64 ".clb", hash);
+  snprintf(cache_path, sizeof(cache_path), "/data/local/tmp/clcache/%016" PRIx64 ".clb", hash);
 
   size_t bin_size;
   uint8_t *bin = read_file(cache_path, &bin_size);
@@ -242,7 +242,7 @@ cl_program cl_cached_program_from_string(cl_context ctx, cl_device_id device_id,
     uint8_t *binary_buf = get_program_binary(prg, &binary_size);
 
     char cache_path[1024];
-    snprintf(cache_path, sizeof(cache_path), "/tmp/clcache/%016" PRIx64 ".clb", hash);
+    snprintf(cache_path, sizeof(cache_path), "/data/local/tmp/clcache/%016" PRIx64 ".clb", hash);
     FILE* of = fopen(cache_path, "wb");
     assert(of);
     fwrite(binary_buf, 1, binary_size, of);
@@ -266,7 +266,7 @@ cl_program cl_cached_program_from_file(cl_context ctx, cl_device_id device_id, c
 }
 
 static void add_index(uint64_t index_hash, uint64_t src_hash) {
-  FILE *f = fopen("/tmp/clcache/index.cli", "a");
+  FILE *f = fopen("/data/local/tmp/clcache/index.cli", "a");
   assert(f);
   fprintf(f, "%016" PRIx64 " %016" PRIx64 "\n", index_hash, src_hash);
   fclose(f);

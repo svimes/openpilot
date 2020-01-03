@@ -5,7 +5,7 @@ import hashlib
 from cffi import FFI
 
 
-def ffi_wrap(name, c_code, c_header, tmpdir="/tmp/ccache", cflags="", libraries=None):
+def ffi_wrap(name, c_code, c_header, tmpdir="/data/local/tmp/ccache", cflags="", libraries=None):
   if libraries is None:
     libraries = []
 

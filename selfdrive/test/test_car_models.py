@@ -45,7 +45,7 @@ def wait_for_socket(name, timeout=10.0):
 
 def get_route_logs(route_name):
   for log_f in ["rlog.bz2", "fcamera.hevc"]:
-    log_path = os.path.join("/tmp", "%s--0--%s" % (route_name.replace("|", "_"), log_f))
+    log_path = os.path.join("/data/local/tmp", "%s--0--%s" % (route_name.replace("|", "_"), log_f))
 
     if not os.path.isfile(log_path):
       log_url = "https://commadataci.blob.core.windows.net/openpilotci/%s/0/%s" % (route_name.replace("|", "/"), log_f)
@@ -484,7 +484,7 @@ if __name__ == "__main__":
       if route in non_public_routes:
         unlogger_cmd = [os.path.join(BASEDIR, os.environ['UNLOGGER_PATH']), '%s' % route, '--disable', 'frame,plan,pathPlan,liveLongitudinalMpc,radarState,controlsState,liveTracks,liveMpc,sendcan,carState,carControl,carEvents,carParams', '--no-interactive']
       else:
-        unlogger_cmd = [os.path.join(BASEDIR, 'tools/replay/unlogger.py'), '%s' % route, '/tmp', '--disable', 'frame,plan,pathPlan,liveLongitudinalMpc,radarState,controlsState,liveTracks,liveMpc,sendcan,carState,carControl,carEvents,carParams', '--no-interactive']
+        unlogger_cmd = [os.path.join(BASEDIR, 'tools/replay/unlogger.py'), '%s' % route, '/data/local/tmp', '--disable', 'frame,plan,pathPlan,liveLongitudinalMpc,radarState,controlsState,liveTracks,liveMpc,sendcan,carState,carControl,carEvents,carParams', '--no-interactive']
       unlogger = subprocess.Popen(unlogger_cmd, preexec_fn=os.setsid)
 
       print("Check sockets")
