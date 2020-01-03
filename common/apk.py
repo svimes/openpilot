@@ -28,7 +28,7 @@ def install_apk(path):
 
 def start_frame():
   set_package_permissions()
-  system("am start -n ai.comma.plus.frame/.MainActivity")
+  system('LD_LIBRARY_PATH="/data/data/com.termux/files/usr/lib"; am start -n ai.comma.plus.frame/.MainActivity')
 
 def set_package_permissions():
   pm_grant("ai.comma.plus.offroad", "android.permission.ACCESS_FINE_LOCATION")
