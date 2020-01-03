@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/data/data/com.termux/files/usr/bin/sh
 export LD_LIBRARY_PATH="/system/lib64:$LD_LIBRARY_PATH"
 exec ./_ui
 
